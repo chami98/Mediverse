@@ -20,7 +20,12 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const TextAnalyzeContainer = () => {
+const TextAnalyzeContainer = ({ analyseBtnClick, setAnalyseBtnClick }) => {
+  const handleClick = () => {
+    setAnalyseBtnClick(true);
+    console.log(analyseBtnClick);
+  };
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Card>
@@ -95,6 +100,7 @@ const TextAnalyzeContainer = () => {
                   float: "right",
                 }}
                 variant="contained"
+                onClick={handleClick}
               >
                 TEXT ANALYSIEREN
               </Button>

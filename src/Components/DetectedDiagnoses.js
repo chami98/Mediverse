@@ -27,7 +27,7 @@ const DetectedDiagnoses = () => {
   };
 
   return (
-    <Box sx={{ marginTop: "24px" }}>
+    <Box sx={{}}>
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
         {[0, 1, 2, 3].map((value) => {
           const labelId = `checkbox-list-label-${value}`;

@@ -12,7 +12,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { width } from "@mui/system";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 
-const OutputDataContainer = () => {
+const OutputDataContainer = ({ analyseBtnClick }) => {
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", position: "relative" }}
@@ -39,33 +39,36 @@ const OutputDataContainer = () => {
           }}
         >
           <CardContent>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="flex-start"
-              spacing={1}
-            >
-              <InfoOutlinedIcon
-                style={{
-                  fontSize: 18,
-                  opacity: 1,
-                }}
-              />
-              <Typography
-                sx={{
-                  textAlign: "left",
-                  font: "normal normal normal 12px/20px Roboto",
-                  letterSpacing: "0px",
-                  color: "#00000099",
-                  opacity: 1,
-                }}
+            {!analyseBtnClick ? (
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="flex-start"
+                spacing={1}
               >
-                Es liegen keine Diagnosen vor. Bitte geben Sie bitte erst die
-                Beschwerden Ihres Patienten in dem freien Textfeld an und
-                drücken Sie anschließend auf „Text analysieren.“
-              </Typography>
-            </Stack>
-            <DetectedDiagnoses />
+                <InfoOutlinedIcon
+                  style={{
+                    fontSize: 18,
+                    opacity: 1,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    font: "normal normal normal 12px/20px Roboto",
+                    letterSpacing: "0px",
+                    color: "#00000099",
+                    opacity: 1,
+                  }}
+                >
+                  Es liegen keine Diagnosen vor. Bitte geben Sie bitte erst die
+                  Beschwerden Ihres Patienten in dem freien Textfeld an und
+                  drücken Sie anschließend auf „Text analysieren.“
+                </Typography>
+              </Stack>
+            ) : null}
+
+            {analyseBtnClick ? <DetectedDiagnoses /> : null}
           </CardContent>
           <Box
             sx={{
