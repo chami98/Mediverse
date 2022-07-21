@@ -69,7 +69,7 @@ const OutputDataContainer = ({ symtoms }) => {
             ) : null}
 
             {!symtoms === undefined || !symtoms.length == 0 ? (
-              <DetectedDiagnoses />
+              <DetectedDiagnoses symtoms={symtoms} />
             ) : null}
           </CardContent>
           <Box

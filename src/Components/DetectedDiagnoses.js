@@ -10,7 +10,7 @@ import CommentIcon from "@mui/icons-material/Comment";
 import { Box } from "@mui/system";
 import { Chip, Stack, Typography } from "@mui/material";
 
-const DetectedDiagnoses = () => {
+const DetectedDiagnoses = ({ symtoms }) => {
   const [checked, setChecked] = React.useState([0]);
 
   const handleToggle = (value) => () => {
@@ -29,25 +29,27 @@ const DetectedDiagnoses = () => {
   return (
     <Box sx={{}}>
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-        {[0, 1, 2, 3].map((value) => {
-          const labelId = `checkbox-list-label-${value}`;
+        {symtoms.map((symtom) => {
+          const labelId = `checkbox-list-label-${symtom.code}`;
 
           return (
             <ListItem
-              key={value}
-              secondaryAction={<Chip label="98 %" color="success" />}
+              key={symtom.code}
+              secondaryAction={
+                <Chip label={(symtom.score * 100).toFixed(2)} color="success" />
+              }
               disablePadding
             >
               <ListItemButton
                 role={undefined}
-                onClick={handleToggle(value)}
+                onClick={handleToggle(symtom)}
                 dense
               >
                 <Box sx={{ width: "18px", marginRight: "15px" }}>
                   <ListItemIcon>
                     <Checkbox
                       edge="start"
-                      checked={checked.indexOf(value) !== -1}
+                      checked={checked.indexOf(symtom) !== -1}
                       tabIndex={-1}
                       disableRipple
                       inputProps={{ "aria-labelledby": labelId }}
@@ -63,9 +65,9 @@ const DetectedDiagnoses = () => {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Typography>R50.9</Typography>
-                  <Typography style={{ marginLeft: "36px" }}>
-                    Fieber, nicht näher bezeichnet
+                  <Typography>{symtom.code}</Typography>
+                  <Typography style={{ marginLeft: "36px", fontSize: "16px" }}>
+                    {symtom.name}
                   </Typography>
                 </Stack>
               </ListItemButton>
