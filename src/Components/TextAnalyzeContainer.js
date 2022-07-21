@@ -9,6 +9,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import { Button, TextField } from "@mui/material";
 
+const axios = require("axios").default;
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -20,10 +22,42 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const TextAnalyzeContainer = ({ analyseBtnClick, setAnalyseBtnClick }) => {
+const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
   const handleClick = () => {
-    setAnalyseBtnClick(true);
-    console.log(analyseBtnClick);
+    postRequest();
+  };
+
+  const postRequest = async () => {
+    const { data } = await axios.post(
+      "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
+      {
+        text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
+      }
+    );
+
+    let responseData = [...data[0].symptom_icd10_codes];
+
+    for (let index = 1; index < data.length; index++) {
+      responseData.push(...data[index].symptom_icd10_codes);
+    }
+
+    let sortedData = responseData
+      .slice()
+      .sort((a, b) => a.code.localeCompare(b.code));
+
+    let symtoms = [];
+
+    const removeDuplicates = (sortedData) => {
+      for (let i = 0; i < sortedData.length; i++) {
+        if (symtoms.indexOf(sortedData[i]) === -1) {
+          symtoms.push(sortedData[i]);
+        }
+      }
+      return symtoms;
+    };
+
+    setSymtoms(removeDuplicates(sortedData));
+    console.log(removeDuplicates(sortedData));
   };
 
   return (

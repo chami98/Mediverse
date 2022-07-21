@@ -12,7 +12,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { width } from "@mui/system";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 
-const OutputDataContainer = ({ analyseBtnClick }) => {
+const OutputDataContainer = ({ symtoms }) => {
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", position: "relative" }}
@@ -39,7 +39,7 @@ const OutputDataContainer = ({ analyseBtnClick }) => {
           }}
         >
           <CardContent>
-            {!analyseBtnClick ? (
+            {!symtoms ? (
               <Stack
                 direction="row"
                 justifyContent="center"
@@ -68,7 +68,7 @@ const OutputDataContainer = ({ analyseBtnClick }) => {
               </Stack>
             ) : null}
 
-            {analyseBtnClick ? <DetectedDiagnoses /> : null}
+            {symtoms ? <DetectedDiagnoses /> : null}
           </CardContent>
           <Box
             sx={{

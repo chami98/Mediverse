@@ -5,15 +5,12 @@ import HomeContainer from "./Components/HomeContainer";
 import { useState } from "react";
 
 function App() {
-  const [analyseBtnClick, setAnalyseBtnClick] = useState(false);
+  const [symtoms, setSymtoms] = useState([]);
 
   return (
     <div className="App">
       <NavBar />
-      <HomeContainer
-        analyseBtnClick={analyseBtnClick}
-        setAnalyseBtnClick={setAnalyseBtnClick}
-      />
+      <HomeContainer symtoms={symtoms} setSymtoms={setSymtoms} />
     </div>
   );
 }
