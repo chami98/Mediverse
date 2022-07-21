@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import { Button, Divider, Stack, TextField } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { width } from "@mui/system";
+import DetectedDiagnoses from "./DetectedDiagnoses";
 
 const OutputDataContainer = () => {
   return (
@@ -64,6 +65,7 @@ const OutputDataContainer = () => {
                 drücken Sie anschließend auf „Text analysieren.“
               </Typography>
             </Stack>
+            <DetectedDiagnoses />
           </CardContent>
           <Box
             sx={{
