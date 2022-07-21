@@ -1,6 +1,7 @@
 import React from "react";
 import TextAnalyzeContainer from "./TextAnalyzeContainer";
 import Grid from "@mui/material/Grid";
+import OutputDataContainer from "./OutputDataContainer";
 
 const HomeContainer = () => {
   return (
@@ -10,7 +11,7 @@ const HomeContainer = () => {
           <TextAnalyzeContainer />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
-          <TextAnalyzeContainer />
+          <OutputDataContainer />
         </Grid>
       </Grid>
     </div>
