@@ -39,7 +39,7 @@ const OutputDataContainer = ({ symtoms }) => {
           }}
         >
           <CardContent>
-            {!symtoms ? (
+            {!symtoms === undefined || symtoms.length == 0 ? (
               <Stack
                 direction="row"
                 justifyContent="center"
@@ -68,7 +68,9 @@ const OutputDataContainer = ({ symtoms }) => {
               </Stack>
             ) : null}
 
-            {symtoms ? <DetectedDiagnoses /> : null}
+            {!symtoms === undefined || !symtoms.length == 0 ? (
+              <DetectedDiagnoses />
+            ) : null}
           </CardContent>
           <Box
             sx={{
