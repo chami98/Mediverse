@@ -4,6 +4,20 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Box } from "@mui/system";
+import { createMuiTheme } from "@mui/material/styles";
+import "../App.css";
+
+// const theme = createMuiTheme({
+//   //v5.0.0
+//   typography: {
+//     appName: {},
+//   },
+// });
+
+// const CardContentNoPadding = styled(Typography)(`
+// fontSize: [24, "!important"],
+// `);
 
 const Header = () => {
   return (
@@ -15,9 +29,19 @@ const Header = () => {
       }}
     >
       <Toolbar variant="dense" sx={{ justifyContent: "space-between" }}>
-        <Typography variant="h6" color="inherit" component="div">
-          AppName
-        </Typography>
+        <Box
+          sx={{
+            textAlign: "left",
+            fontFamily: "Roboto",
+            letterSpacing: "0px",
+            color: "#FFFFFF",
+            opacity: 1,
+          }}
+        >
+          <Typography variant="appName" color="inherit" component="div" className="AppName">
+            AppName
+          </Typography>
+        </Box>
 
         <IconButton edge="end" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
           <MenuIcon />

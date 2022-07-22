@@ -7,20 +7,26 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { Button, TextField } from "@mui/material";
+import { Button, createTheme, TextField } from "@mui/material";
+import "../App.css";
 
 const axios = require("axios").default;
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+const CardContentNoPadding = styled(CardContent)(`
+  padding: 0;
+  &:last-child {
+    padding-bottom: 0;
+  }
+`);
+
+const MyComponent = styled(Typography)({
+  textAlign: "left",
+  font: "normal normal bold 20px/24px Roboto",
+  letterSpacing: "0.15px",
+  color: "#616161",
+  opacity: 1,
+  fontSize: "24px",
+});
 
 const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
   const handleClick = () => {
@@ -64,6 +70,7 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Card>
         <CardHeader
+          className="cardHeaderText"
           sx={{
             textAlign: "left",
             background: "#FAFCFC 0% 0% no-repeat padding-box",
@@ -73,18 +80,26 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
               <MoreVertIcon />
             </IconButton>
           }
-          title="Behandlungsmitschrift"
+          title={
+            <MyComponent
+              varient="h6"
+              color="inherit"
+              sx={{ fontSixe: "100px" }}
+            >
+              Behandlungsmitschrift
+            </MyComponent>
+          }
         />
         <Box
           sx={{
             background: "#F5F8FA 0% 0% no-repeat padding-box",
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
-
             height: "78vh",
+            padding: "24px",
           }}
         >
-          <CardContent>
+          <CardContentNoPadding>
             <Box
               sx={{
                 background: "#FFFFFF 0% 0% no-repeat padding-box",
@@ -139,7 +154,7 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
                 TEXT ANALYSIEREN
               </Button>
             </Box>
-          </CardContent>
+          </CardContentNoPadding>
         </Box>
       </Card>
     </Box>

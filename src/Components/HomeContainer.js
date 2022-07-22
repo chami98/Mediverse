@@ -5,7 +5,7 @@ import OutputDataContainer from "./OutputDataContainer";
 
 const HomeContainer = ({ symtoms, setSymtoms }) => {
   return (
-    <div>
+    <div style={{ backgroundColor: "#EBF1F5" }}>
       <Grid container>
         <Grid item xs={6} sx={{ padding: "24px" }}>
           <TextAnalyzeContainer symtoms={symtoms} setSymtoms={setSymtoms} />
