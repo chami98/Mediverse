@@ -6,6 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Checkbox from "@mui/material/Checkbox";
 import { Box } from "@mui/system";
 import { Chip, createTheme, Stack, Typography } from "@mui/material";
+import "../App.css";
 
 const theme = createTheme({
   components: {
@@ -52,7 +53,16 @@ const DetectedDiagnoses = ({ symptom }) => {
               key={symptom.code}
               secondaryAction={
                 <Chip
-                  label={(symptom.score * 100).toFixed(2) + " %"}
+                  label={
+                    <Typography
+                      variant="ScorePercentage"
+                      color="inherit"
+                      component="div"
+                      className="ScorePercentage"
+                    >
+                      {(symptom.score * 100).toFixed(2) + " %"}
+                    </Typography>
+                  }
                   //set chip background color according to the symptom score value
 
                   sx={{
@@ -91,8 +101,19 @@ const DetectedDiagnoses = ({ symptom }) => {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Typography>{symptom.code}</Typography>
-                  <Typography style={{ marginLeft: "36px", fontSize: "16px" }}>
+                  <Typography
+                    variant="SymptomCode"
+                    component="div"
+                    className="SymptomCode"
+                  >
+                    {symptom.code}
+                  </Typography>
+                  <Typography
+                    variant="SymptomName"
+                    component="div"
+                    className="SymptomName"
+                    style={{ marginLeft: "36px", fontSize: "16px" }}
+                  >
                     {symptom.name}
                   </Typography>
                 </Stack>
