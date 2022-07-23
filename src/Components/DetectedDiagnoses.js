@@ -40,6 +40,7 @@ const DetectedDiagnoses = ({ symptom }) => {
     }
 
     setChecked(newChecked);
+    console.log(checked);
   };
 
   return (

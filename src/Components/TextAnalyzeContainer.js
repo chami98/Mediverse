@@ -42,9 +42,9 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
 
     //get response data from the API and assign data to responseData array
 
-    let responseData = [...data[0].symptom_icd10_codes];
+    let responseData = [];
 
-    for (let index = 1; index < data.length; index++) {
+    for (let index = 0; index < data.length; index++) {
       responseData.push(...data[index].symptom_icd10_codes);
     }
 
