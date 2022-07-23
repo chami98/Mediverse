@@ -40,29 +40,30 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
       }
     );
 
+    //get response data from the API and assign data to responseData array
+
     let responseData = [...data[0].symptom_icd10_codes];
 
     for (let index = 1; index < data.length; index++) {
       responseData.push(...data[index].symptom_icd10_codes);
     }
 
+    //sort data according to the symtom code
+
     let sortedData = responseData
       .slice()
       .sort((a, b) => a.code.localeCompare(b.code));
 
-    let symtoms = [];
+    //remove duplicates from the sortedData array and assign symtoms to the symtoms array
 
-    const removeDuplicates = (sortedData) => {
-      for (let i = 0; i < sortedData.length; i++) {
-        if (symtoms.indexOf(sortedData[i]) === -1) {
-          symtoms.push(sortedData[i]);
-        }
-      }
-      return symtoms;
-    };
+    const symtomCodes = sortedData.map((o) => o.code);
+    const symtoms = sortedData.filter(
+      ({ code }, index) => !symtomCodes.includes(code, index + 1)
+    );
 
-    setSymtoms(removeDuplicates(sortedData));
-    console.log(removeDuplicates(sortedData));
+    //set the state
+
+    setSymtoms(symtoms);
   };
 
   return (
