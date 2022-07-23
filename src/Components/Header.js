@@ -36,9 +36,15 @@ const Header = () => {
             letterSpacing: "0px",
             color: "#FFFFFF",
             opacity: 1,
+            marginLeft:"12px"
           }}
         >
-          <Typography variant="appName" color="inherit" component="div" className="AppName">
+          <Typography
+            variant="appName"
+            color="inherit"
+            component="div"
+            className="AppName"
+          >
             AppName
           </Typography>
         </Box>

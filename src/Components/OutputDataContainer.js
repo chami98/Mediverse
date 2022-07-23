@@ -13,6 +13,14 @@ import { width } from "@mui/system";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 
 const OutputDataContainer = ({ symtoms }) => {
+  const OutputDataContainerHeader = styled(Typography)({
+    textAlign: "left",
+    font: "normal normal bold 20px/24px Roboto",
+    letterSpacing: "0.15px",
+    color: "#616161",
+    opacity: 1,
+  });
+
   return (
     <Box
       sx={{ display: "flex", flexDirection: "column", position: "relative" }}
@@ -22,20 +30,26 @@ const OutputDataContainer = ({ symtoms }) => {
           sx={{
             textAlign: "left",
             background: "#FAFCFC 0% 0% no-repeat padding-box",
+            padding:"24px"
+            
           }}
           action={
             <IconButton aria-label="settings">
               <MoreVertIcon />
             </IconButton>
           }
-          title="Erkannte Diagnosen"
+          title={
+            <OutputDataContainerHeader varient="h6">
+              Erkannte Diagnosen
+            </OutputDataContainerHeader>
+          }
         />
         <Box
           sx={{
             background: "#F5F8FA 0% 0% no-repeat padding-box",
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
-            height: "78vh",
+            height: "76vh",
           }}
         >
           <CardContent>

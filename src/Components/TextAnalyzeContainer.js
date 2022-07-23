@@ -19,13 +19,12 @@ const CardContentNoPadding = styled(CardContent)(`
   }
 `);
 
-const MyComponent = styled(Typography)({
+const TextAnalyzeHeader = styled(Typography)({
   textAlign: "left",
   font: "normal normal bold 20px/24px Roboto",
   letterSpacing: "0.15px",
   color: "#616161",
   opacity: 1,
-  fontSize: "24px",
 });
 
 const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
@@ -74,6 +73,7 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
           sx={{
             textAlign: "left",
             background: "#FAFCFC 0% 0% no-repeat padding-box",
+            padding: "24px",
           }}
           action={
             <IconButton aria-label="settings">
@@ -81,13 +81,9 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
             </IconButton>
           }
           title={
-            <MyComponent
-              varient="h6"
-              color="inherit"
-              sx={{ fontSixe: "100px" }}
-            >
+            <TextAnalyzeHeader varient="h6">
               Behandlungsmitschrift
-            </MyComponent>
+            </TextAnalyzeHeader>
           }
         />
         <Box
@@ -95,7 +91,7 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
             background: "#F5F8FA 0% 0% no-repeat padding-box",
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
-            height: "78vh",
+            height: "70vh",
             padding: "24px",
           }}
         >
@@ -124,6 +120,8 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
                 letterSpacing: "0px",
                 color: "#00000099",
                 opacity: 1,
+                marginLeft: "14px",
+                marginTop: "5px",
               }}
             >
               Geben Sie hier einen Freitext zu den Beschwerden Ihres Patienten
@@ -147,11 +145,34 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
                   borderRadius: "21px",
                   opacity: 1,
                   float: "right",
+                  paddingTop: "11px",
+                  paddingBottom: "11px",
+                  paddingLeft: "22px",
+                  paddingRight: "22px",
+                  marginTop: "3px",
                 }}
                 variant="contained"
                 onClick={handleClick}
               >
-                TEXT ANALYSIEREN
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                    font: "normal normal medium 15px/14px Roboto",
+                    fontSize: "15px",
+                    lineHeight: "14px",
+                    fontFamily: "Roboto",
+                    fontStyle: "normal",
+                    fontVariant: "normal",
+                    fontWeight: "medium",
+                    letterSpacing: "0.01px",
+                    color: "#FFFFFF",
+                    textTransform: "uppercase",
+                    opacity: 1,
+                  }}
+                >
+                  {" "}
+                  TEXT ANALYSIEREN
+                </Typography>
               </Button>
             </Box>
           </CardContentNoPadding>
