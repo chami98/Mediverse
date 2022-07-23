@@ -11,7 +11,7 @@ import { Button, Divider, Stack } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 
-const OutputDataContainer = ({ symtoms }) => {
+const OutputDataContainer = ({ symptom }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
     font: "normal normal bold 20px/24px Roboto",
@@ -51,7 +51,7 @@ const OutputDataContainer = ({ symtoms }) => {
           }}
         >
           <CardContent>
-            {!symtoms === undefined || symtoms.length == 0 ? (
+            {!symptom === undefined || symptom.length == 0 ? (
               <Stack
                 direction="row"
                 justifyContent="center"
@@ -80,8 +80,8 @@ const OutputDataContainer = ({ symtoms }) => {
               </Stack>
             ) : null}
 
-            {!symtoms === undefined || !symtoms.length == 0 ? (
-              <DetectedDiagnoses symtoms={symtoms} />
+            {!symptom === undefined || !symptom.length == 0 ? (
+              <DetectedDiagnoses symptom={symptom} />
             ) : null}
           </CardContent>
           <Box

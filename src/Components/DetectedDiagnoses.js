@@ -3,14 +3,29 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import CommentIcon from "@mui/icons-material/Comment";
 import { Box } from "@mui/system";
-import { Chip, Stack, Typography } from "@mui/material";
+import { Chip, createTheme, Stack, Typography } from "@mui/material";
 
-const DetectedDiagnoses = ({ symtoms }) => {
+const theme = createTheme({
+  components: {
+    MuiChip: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: "#469C24",
+        },
+        colorSecondary: {
+          backgroundColor: "#6ED111",
+        },
+        colorWarning: {
+          backgroundColor: "#FCE447",
+        },
+      },
+    },
+  },
+});
+
+const DetectedDiagnoses = ({ symptom }) => {
   const [checked, setChecked] = React.useState([0]);
 
   const handleToggle = (value) => () => {
@@ -29,30 +44,40 @@ const DetectedDiagnoses = ({ symtoms }) => {
   return (
     <Box sx={{}}>
       <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-        {symtoms.map((symtom) => {
-          const labelId = `checkbox-list-label-${symtom.code}`;
+        {symptom.map((symptom) => {
+          const labelId = `checkbox-list-label-${symptom.code}`;
 
           return (
             <ListItem
-              key={symtom.code}
+              key={symptom.code}
               secondaryAction={
                 <Chip
-                  label={(symtom.score * 100).toFixed(2) + " %"}
-                  color="success"
+                  label={(symptom.score * 100).toFixed(2) + " %"}
+                  //set chip background color according to the symptom score value
+
+                  sx={{
+                    bgcolor:
+                      (symptom.score * 100).toFixed(2) > 70
+                        ? "#469C24"
+                        : (symptom.score * 100).toFixed(2) < 70 &&
+                          40 < (symptom.score * 100).toFixed(2)
+                        ? "#6ED111"
+                        : "#FCE447",
+                  }}
                 />
               }
               disablePadding
             >
               <ListItemButton
                 role={undefined}
-                onClick={handleToggle(symtom)}
+                onClick={handleToggle(symptom)}
                 dense
               >
                 <Box sx={{ width: "18px", marginRight: "15px" }}>
                   <ListItemIcon>
                     <Checkbox
                       edge="start"
-                      checked={checked.indexOf(symtom) !== -1}
+                      checked={checked.indexOf(symptom) !== -1}
                       tabIndex={-1}
                       disableRipple
                       inputProps={{ "aria-labelledby": labelId }}
@@ -66,9 +91,9 @@ const DetectedDiagnoses = ({ symtoms }) => {
                   alignItems="center"
                   spacing={2}
                 >
-                  <Typography>{symtom.code}</Typography>
+                  <Typography>{symptom.code}</Typography>
                   <Typography style={{ marginLeft: "36px", fontSize: "16px" }}>
-                    {symtom.name}
+                    {symptom.name}
                   </Typography>
                 </Stack>
               </ListItemButton>

@@ -27,7 +27,7 @@ const TextAnalyzeHeader = styled(Typography)({
   opacity: 1,
 });
 
-const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
+const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
   const handleClick = () => {
     postRequest();
   };
@@ -48,22 +48,22 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
       responseData.push(...data[index].symptom_icd10_codes);
     }
 
-    //sort data according to the symtom code
+    //sort data according to the symptom code
 
     let sortedData = responseData
       .slice()
       .sort((a, b) => a.code.localeCompare(b.code));
 
-    //remove duplicates from the sortedData array and assign symtoms to the symtoms array
+    //remove duplicates from the sortedData array and assign symptom to the symptom array
 
     const symtomCodes = sortedData.map((o) => o.code);
-    const symtoms = sortedData.filter(
+    const symptom = sortedData.filter(
       ({ code }, index) => !symtomCodes.includes(code, index + 1)
     );
 
-    //sort symtoms accordingto the symtom score
+    //sort symptom accordingto the symptom score
 
-    let sortedSymtoms = symtoms.sort((a, b) => b.score - a.score);
+    let sortedSymtoms = symptom.sort((a, b) => b.score - a.score);
 
     //set the state
 
