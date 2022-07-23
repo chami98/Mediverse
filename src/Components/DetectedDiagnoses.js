@@ -36,7 +36,10 @@ const DetectedDiagnoses = ({ symtoms }) => {
             <ListItem
               key={symtom.code}
               secondaryAction={
-                <Chip label={(symtom.score * 100).toFixed(2)} color="success" />
+                <Chip
+                  label={(symtom.score * 100).toFixed(2) + " %"}
+                  color="success"
+                />
               }
               disablePadding
             >
@@ -55,8 +58,6 @@ const DetectedDiagnoses = ({ symtoms }) => {
                       inputProps={{ "aria-labelledby": labelId }}
                     />
                   </ListItemIcon>
-                  {/* <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-                   */}
                 </Box>
 
                 <Stack

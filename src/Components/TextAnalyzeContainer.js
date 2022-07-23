@@ -61,9 +61,14 @@ const TextAnalyzeContainer = ({ symtoms, setSymtoms }) => {
       ({ code }, index) => !symtomCodes.includes(code, index + 1)
     );
 
+    //sort symtoms accordingto the symtom score
+
+    let sortedSymtoms = symtoms.sort((a, b) => b.score - a.score);
+
     //set the state
 
-    setSymtoms(symtoms);
+    setSymtoms(sortedSymtoms);
+    console.log(sortedSymtoms);
   };
 
   return (
