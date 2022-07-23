@@ -42,31 +42,29 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
 
     //get response data from the API and assign data to responseData array
 
-    let responseData = [];
+    const responseData = data.reduce(
+      (acc, s) => acc.concat(s.symptom_icd10_codes),
+      []
+    );
 
-    for (let index = 0; index < data.length; index++) {
-      responseData.push(...data[index].symptom_icd10_codes);
-    }
+    const symtomObj = {};
 
-    //sort data according to the symptom code
-
-    let sortedData = responseData
-      .slice()
-      .sort((a, b) => a.code.localeCompare(b.code));
+    responseData.forEach((s) => {
+      symtomObj[s.code] = s;
+    });
 
     //remove duplicates from the sortedData array and assign symptom to the symptom array
 
-    const symtomCodes = sortedData.map((o) => o.code);
-    const symptom = sortedData.filter(
-      ({ code }, index) => !symtomCodes.includes(code, index + 1)
-    );
+    const filterdSymptoms = [];
+    Object.keys(symtomObj).forEach((k) => {
+      filterdSymptoms.push(symtomObj[k]);
+    });
 
-    //sort symptom accordingto the symptom score
+    //sort symptoms accordingto the symptom score
 
-    let sortedSymtoms = symptom.sort((a, b) => b.score - a.score);
+    const sortedSymtoms = filterdSymptoms.sort((a, b) => b.score - a.score);
 
     //set the state
-
     setSymtoms(sortedSymtoms);
     console.log(sortedSymtoms);
   };
