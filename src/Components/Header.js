@@ -5,19 +5,8 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Box } from "@mui/system";
-import { createMuiTheme } from "@mui/material/styles";
+
 import "../App.css";
-
-// const theme = createMuiTheme({
-//   //v5.0.0
-//   typography: {
-//     appName: {},
-//   },
-// });
-
-// const CardContentNoPadding = styled(Typography)(`
-// fontSize: [24, "!important"],
-// `);
 
 const Header = () => {
   return (

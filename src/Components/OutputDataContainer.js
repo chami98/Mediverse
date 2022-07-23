@@ -7,9 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { Button, Divider, Stack, TextField } from "@mui/material";
+import { Button, Divider, Stack, } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { width } from "@mui/system";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 
 const OutputDataContainer = ({ symtoms }) => {
@@ -53,7 +52,7 @@ const OutputDataContainer = ({ symtoms }) => {
           }}
         >
           <CardContent>
-            {!symtoms === undefined || symtoms.length == 0 ? (
+            {!symtoms === undefined || symtoms.length === 0 ? (
               <Stack
                 direction="row"
                 justifyContent="center"
@@ -82,7 +81,7 @@ const OutputDataContainer = ({ symtoms }) => {
               </Stack>
             ) : null}
 
-            {!symtoms === undefined || !symtoms.length == 0 ? (
+            {!symtoms === undefined || !symtoms.length === 0 ? (
               <DetectedDiagnoses symtoms={symtoms} />
             ) : null}
           </CardContent>
