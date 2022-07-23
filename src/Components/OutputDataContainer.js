@@ -48,6 +48,7 @@ const OutputDataContainer = ({ symptom }) => {
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
             height: "76vh",
+            overflow: "scroll",
           }}
         >
           <CardContent>

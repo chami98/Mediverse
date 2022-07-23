@@ -66,7 +66,6 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
 
     //set the state
     setSymtoms(sortedSymtoms);
-    console.log(sortedSymtoms);
   };
 
   return (
