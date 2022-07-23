@@ -34,7 +34,7 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
 
   const postRequest = async () => {
     const { data } = await axios.post(
-      "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
+      "https://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
       {
         text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
       }
