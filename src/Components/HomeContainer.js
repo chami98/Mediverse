@@ -7,7 +7,7 @@ import OutputDataContainer from "./OutputDataContainer";
 
 const HomeContainer = ({
   clearAll,
-  symptom,
+  symptoms,
   setSymtoms,
   symptomChecked,
   setSymptomChecked,
@@ -50,7 +50,7 @@ const HomeContainer = ({
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
           <OutputDataContainer
             clearAll={clearAll}
-            symptom={symptom}
+            symptoms={symptoms}
             symptomChecked={symptomChecked}
             setSymptomChecked={setSymptomChecked}
             diagnosisModalOpen={diagnosisModalOpen}

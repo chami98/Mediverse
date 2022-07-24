@@ -7,7 +7,7 @@ import { Box } from "@mui/system";
 import { Chip, Stack, Typography, Paper } from "@mui/material";
 import "../App.css";
 
-const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
+const DetectedDiagnoses = ({ symptoms, symptomChecked, setSymptomChecked }) => {
   const handleToggle = (value) => () => {
     const currentIndex = symptomChecked.indexOf(value);
     const newSymptomChecked = [...symptomChecked];
@@ -32,11 +32,11 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
         paddingBottom: "80px",
       }}
     >
-      {symptom.map((symptom) => {
-        const labelId = `checkbox-list-label-${symptom.code}`;
+      {symptoms.map((symptoms) => {
+        const labelId = `checkbox-list-label-${symptoms.code}`;
 
         return (
-          <Paper elevation={1} key={symptom.code}>
+          <Paper elevation={1} key={symptoms.code}>
             <ListItem
               secondaryAction={
                 <Box sx={{ marginTop: "15px", marginBottom: "14px" }}>
@@ -62,21 +62,21 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                           component="div"
                           className="ScorePercentage"
                         >
-                          {(symptom.score * 100).toFixed(1) + " %"}
+                          {(symptoms.score * 100).toFixed(1) + " %"}
                         </Typography>
                       </Box>
                     }
-                    //set chip background color according to the symptom score value
+                    //set chip background color according to the symptoms score value
 
                     sx={{
                       paddingTop: "14px",
                       paddingBottom: "12px",
 
                       bgcolor:
-                        (symptom.score * 100).toFixed(2) > 70
+                        (symptoms.score * 100).toFixed(2) > 70
                           ? "#469C24"
-                          : (symptom.score * 100).toFixed(2) < 70 &&
-                            40 < (symptom.score * 100).toFixed(2)
+                          : (symptoms.score * 100).toFixed(2) < 70 &&
+                            40 < (symptoms.score * 100).toFixed(2)
                           ? "#6ED111"
                           : "#FCE447",
                     }}
@@ -87,14 +87,14 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
             >
               <ListItemButton
                 role={undefined}
-                onClick={handleToggle(symptom)}
+                onClick={handleToggle(symptoms)}
                 dense
               >
                 <Box sx={{ width: "18px", marginRight: "15px" }}>
                   <ListItemIcon>
                     <Checkbox
                       edge="start"
-                      checked={symptomChecked.indexOf(symptom) !== -1}
+                      checked={symptomChecked.indexOf(symptoms) !== -1}
                       tabIndex={-1}
                       disableRipple
                       inputProps={{ "aria-labelledby": labelId }}
@@ -114,7 +114,7 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                     className="SymptomCode"
                     sx={{ minWidth: "72px" }}
                   >
-                    {symptom.code}
+                    {symptoms.code}
                   </Typography>
                   <Typography
                     variant="SymptomName"
@@ -122,7 +122,7 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                     className="SymptomName"
                     style={{ marginLeft: "36px", fontSize: "16px" }}
                   >
-                    {symptom.name}
+                    {symptoms.name}
                   </Typography>
                 </Stack>
               </ListItemButton>

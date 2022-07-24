@@ -6,7 +6,7 @@ import SnackbarCom from "./Components/PositionedSnackbar";
 import PositionedSnackbar from "./Components/PositionedSnackbar";
 
 function App() {
-  const [symptom, setSymtoms] = useState([]);
+  const [symptoms, setSymtoms] = useState([]);
   const [symptomChecked, setSymptomChecked] = useState([]);
   const [diagnosisModalOpen, setDiagnosisModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ function App() {
       <NavBar />
       <HomeContainer
         clearAll={clearAll}
-        symptom={symptom}
+        symptoms={symptoms}
         setSymtoms={setSymtoms}
         symptomChecked={symptomChecked}
         setSymptomChecked={setSymptomChecked}

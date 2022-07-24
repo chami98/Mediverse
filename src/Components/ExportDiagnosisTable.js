@@ -18,7 +18,7 @@ const ExportDiagnosisTable = ({ symptomChecked }) => {
     createData("Ice cream sandwich", 237),
   ];
   return (
-    <TableContainer sx={{ marginTop: "34px" }} >
+    <TableContainer sx={{ marginTop: "34px" }}>
       <Table sx={{}} aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -27,17 +27,19 @@ const ExportDiagnosisTable = ({ symptomChecked }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {symptomChecked.map((symptom) => (
+          {symptomChecked.map((symptoms) => (
             <TableRow
-              key={symptom.code}
-              sx={{
-                // "&:last-child td, &:last-child th": { border: 0 },
-              }}
+              key={symptoms.code}
+              sx={
+                {
+                  // "&:last-child td, &:last-child th": { border: 0 },
+                }
+              }
             >
               <TableCell component="th" scope="row">
-                {symptom.code}
+                {symptoms.code}
               </TableCell>
-              <TableCell>{symptom.name}</TableCell>
+              <TableCell>{symptoms.name}</TableCell>
             </TableRow>
           ))}
         </TableBody>

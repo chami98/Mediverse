@@ -67,14 +67,14 @@ const TextAnalyzeContainer = ({
           symtomObj[s.code] = s;
         });
 
-        //remove duplicates from the sortedData array and assign symptom to the symptom array
+        //remove duplicates from the sortedData array and assign symptoms to the symptoms array
 
         const filterdSymptoms = [];
         Object.keys(symtomObj).forEach((k) => {
           filterdSymptoms.push(symtomObj[k]);
         });
 
-        //sort symptoms accordingto the symptom score
+        //sort symptoms accordingto the symptoms score
 
         const sortedSymtoms = filterdSymptoms.sort((a, b) => b.score - a.score);
 

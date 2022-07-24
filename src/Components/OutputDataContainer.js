@@ -14,7 +14,7 @@ import ExportDiagnosisModal from "./ExportDiagnosisModal";
 
 const OutputDataContainer = ({
   clearAll,
-  symptom,
+  symptoms,
   symptomChecked,
   setSymptomChecked,
   diagnosisModalOpen,
@@ -32,7 +32,11 @@ const OutputDataContainer = ({
     opacity: 1,
   });
 
-  const handleOpen = () => setDiagnosisModalOpen(true);
+  const handleOpen = () => {
+    if (symptomChecked.length > 0) {
+      setDiagnosisModalOpen(true);
+    }
+  };
 
   return (
     <Box
@@ -79,7 +83,7 @@ const OutputDataContainer = ({
                 <CircularProgress size="4rem" />
               </Box>
             ) : null}
-            {!symptom === undefined || symptom.length == 0 ? (
+            {!symptoms === undefined || symptoms.length == 0 ? (
               <Stack
                 direction="row"
                 justifyContent="center"
@@ -108,9 +112,9 @@ const OutputDataContainer = ({
               </Stack>
             ) : null}
 
-            {!symptom === undefined || !symptom.length == 0 ? (
+            {!symptoms === undefined || !symptoms.length == 0 ? (
               <DetectedDiagnoses
-                symptom={symptom}
+                symptoms={symptoms}
                 symptomChecked={symptomChecked}
                 setSymptomChecked={setSymptomChecked}
                 text={text}
