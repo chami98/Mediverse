@@ -37,12 +37,11 @@ const ExportDiagnosisModal = ({
   const handleClose = () => setDiagnosisModalOpen(false);
 
   const handleClick = () => {
-    clearAll()
-    handleClose()
+    clearAll();
+    handleClose();
 
     // dummy submit
-    setTimeout(handleSnackBarOpen, 2000)
-    
+    setTimeout(handleSnackBarOpen, 2000);
   };
 
   return (
@@ -63,7 +62,11 @@ const ExportDiagnosisModal = ({
             <Typography variant="h6" component="div">
               Diagnose exportieren
             </Typography>
-            <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClose} />
+            <CloseIcon
+              fontSize="medium"
+              sx={{ cursor: "pointer" }}
+              onClick={handleClose}
+            />
           </Toolbar>
         </AppBar>
         <Toolbar />
@@ -110,8 +113,7 @@ const ExportDiagnosisModal = ({
             DIAGNOSE SENDEN
           </Button>
         </Box>
-      {/* <PositionedSnackbar state={state} setState={setState} /> */}
-      
+        {/* <PositionedSnackbar state={state} setState={setState} /> */}
       </Box>
     </Modal>
   );

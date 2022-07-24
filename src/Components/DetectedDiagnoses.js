@@ -44,9 +44,12 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                     label={
                       <Box
                         sx={{
-                          width: "44px",
-                          height: "23px",
+                          width: "30px",
+                          height: "19px",
                           textAlign: "center",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
                           font: "normal normal normal 14px/20px Roboto",
                           letterSpacing: "0.01px",
                           color: "#ffffff",
@@ -59,7 +62,7 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                           component="div"
                           className="ScorePercentage"
                         >
-                          {(symptom.score * 100).toFixed(2) + " %"}
+                          {(symptom.score * 100).toFixed(1) + " %"}
                         </Typography>
                       </Box>
                     }
@@ -109,6 +112,7 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                     variant="SymptomCode"
                     component="div"
                     className="SymptomCode"
+                    sx={{ minWidth: "50px" }}
                   >
                     {symptom.code}
                   </Typography>

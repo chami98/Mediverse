@@ -37,41 +37,48 @@ const TextAnalyzeContainer = ({ setSymtoms, clearAll }) => {
   };
 
   const postRequest = async () => {
-    const { data } = await axios.post(
+
+    axios.post(
       "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
       {
         text,
         // below is the working text
         // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
       }
-    );
+    ).then( ( res => {
 
-    //get response data from the API and assign data to responseData array
+        // get response data from the API and assign data to responseData array
 
-    const responseData = data.reduce(
-      (acc, s) => acc.concat(s.symptom_icd10_codes),
-      []
-    );
+        const responseData = res.data.reduce(
+          (acc, s) => acc.concat(s.symptom_icd10_codes),
+          []
+        );
 
-    const symtomObj = {};
+        const symtomObj = {};
 
-    responseData.forEach((s) => {
-      symtomObj[s.code] = s;
-    });
+        responseData.forEach((s) => {
+          symtomObj[s.code] = s;
+        });
 
-    //remove duplicates from the sortedData array and assign symptom to the symptom array
+        //remove duplicates from the sortedData array and assign symptom to the symptom array
 
-    const filterdSymptoms = [];
-    Object.keys(symtomObj).forEach((k) => {
-      filterdSymptoms.push(symtomObj[k]);
-    });
+        const filterdSymptoms = [];
+        Object.keys(symtomObj).forEach((k) => {
+          filterdSymptoms.push(symtomObj[k]);
+        });
 
-    //sort symptoms accordingto the symptom score
+        //sort symptoms accordingto the symptom score
 
-    const sortedSymtoms = filterdSymptoms.sort((a, b) => b.score - a.score);
+        const sortedSymtoms = filterdSymptoms.sort((a, b) => b.score - a.score);
 
-    //set the state
-    setSymtoms(sortedSymtoms);
+        //set the state
+        setSymtoms(sortedSymtoms);
+    }))
+    .catch(err => {
+      alert('fetchnig data failed')
+      console.log(err)
+    })
+    
   };
 
   return (

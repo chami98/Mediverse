@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { BorderBottom } from "@mui/icons-material";
 
 const ExportDiagnosisTable = ({ symptomChecked }) => {
   function createData(code, Beschreibung) {
@@ -17,7 +18,7 @@ const ExportDiagnosisTable = ({ symptomChecked }) => {
     createData("Ice cream sandwich", 237),
   ];
   return (
-    <TableContainer sx={{ marginTop: "34px" }} component={Paper}>
+    <TableContainer sx={{ marginTop: "34px" }} >
       <Table sx={{}} aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -29,7 +30,9 @@ const ExportDiagnosisTable = ({ symptomChecked }) => {
           {symptomChecked.map((symptom) => (
             <TableRow
               key={symptom.code}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{
+                // "&:last-child td, &:last-child th": { border: 0 },
+              }}
             >
               <TableCell component="th" scope="row">
                 {symptom.code}
