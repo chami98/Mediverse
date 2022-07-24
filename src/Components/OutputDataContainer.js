@@ -13,14 +13,13 @@ import DetectedDiagnoses from "./DetectedDiagnoses";
 import ExportDiagnosisModal from "./ExportDiagnosisModal";
 
 const OutputDataContainer = ({
+  clearAll,
   symptom,
   symptomChecked,
   setSymptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
-  setState,
-  state
-  
+  handleSnackBarOpen,
 }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
@@ -140,12 +139,11 @@ const OutputDataContainer = ({
         </Box>
       </Card>
       <ExportDiagnosisModal
+        clearAll={clearAll}
         symptomChecked={symptomChecked}
         diagnosisModalOpen={diagnosisModalOpen}
         setDiagnosisModalOpen={setDiagnosisModalOpen}
-        setState={setState}
-        state={state}
-   
+        handleSnackBarOpen={handleSnackBarOpen}
       />
     </Box>
   );

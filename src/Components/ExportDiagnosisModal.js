@@ -11,14 +11,13 @@ import {
   Box,
   Toolbar,
 } from "@mui/material";
-import PositionedSnackbar from "./PositionedSnackbar";
 
 const ExportDiagnosisModal = ({
+  clearAll,
   symptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
-  setState,
-  state
+  handleSnackBarOpen,
 }) => {
   const style = {
     position: "absolute",
@@ -35,11 +34,15 @@ const ExportDiagnosisModal = ({
     paddingBottom: "14px",
   };
 
-  const handleOpen = () => setDiagnosisModalOpen(true);
   const handleClose = () => setDiagnosisModalOpen(false);
 
-  const handleClick = (newState) => () => {
-    setState({ open: true, ...newState });
+  const handleClick = () => {
+    clearAll()
+    handleClose()
+
+    // dummy submit
+    setTimeout(handleSnackBarOpen, 2000)
+    
   };
 
   return (
@@ -102,17 +105,13 @@ const ExportDiagnosisModal = ({
               opacity: 1,
             }}
             variant="contained"
-            onClick={() =>
-              handleClick({
-                vertical: "bottom",
-                horizontal: "center",
-              })
-            }
+            onClick={handleClick}
           >
             DIAGNOSE SENDEN
           </Button>
         </Box>
-      <PositionedSnackbar state={state} setState={setState} />
+      {/* <PositionedSnackbar state={state} setState={setState} /> */}
+      
       </Box>
     </Modal>
   );
