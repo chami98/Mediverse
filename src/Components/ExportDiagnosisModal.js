@@ -31,8 +31,8 @@ const ExportDiagnosisModal = ({
     border: "2px solid #000",
     boxShadow: 24,
     paddingTop: "33px",
-    paddingLeft: "33px",
-    paddingRight: "33px",
+    // paddingLeft: "33px",
+    // paddingRight: "33px",
     paddingBottom: "14px",
   };
 
@@ -73,11 +73,21 @@ const ExportDiagnosisModal = ({
           </Toolbar>
         </AppBar>
         <Toolbar />
-        <Typography variant="h6" component="h6" className="ModalText">
-          Prüfen Sie die ausgewählte Diagnose vor dem Senden.
-        </Typography>
-        <ExportDiagnosisTable symptomChecked={symptomChecked} />
+        <Box
+          style={{
+            paddingLeft: "33px",
+            paddingRight: "33px",
+           
+          }}
+        >
+          <Typography variant="h6" component="h6" className="ModalText" sx={{fontSize: "17px"}}>
+            Prüfen Sie die ausgewählte Diagnose vor dem Senden.
+          </Typography>
+          <ExportDiagnosisTable symptomChecked={symptomChecked} />
         <Box sx={{ marginTop: "51px" }}></Box>
+        </Box>
+
+        
         <Divider />
         <Box
           sx={{
@@ -87,6 +97,7 @@ const ExportDiagnosisModal = ({
             marginTop: "14px",
             background: "#FAFCFC 0% 0% no-repeat padding-box",
             borderRadius: 1,
+            paddingRight : '33px',
           }}
         >
           <Button

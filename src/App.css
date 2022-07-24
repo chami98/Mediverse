@@ -45,13 +45,12 @@
   opacity: 1;
   width: 500px;
   height: 23px;
-
 }
 
-.ModalHeaderText{
+.ModalHeaderText {
   text-align: left;
-font: normal normal normal 17px/24px Roboto;
-letter-spacing: 0.13px;
-color: #000000;
-opacity: 1;
+  font: normal normal normal 17px/24px Roboto;
+  letter-spacing: 0.13px;
+  color: #000000;
+  opacity: 1;
 }
