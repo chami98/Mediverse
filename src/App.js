@@ -1,4 +1,3 @@
-
 import "./App.css";
 import NavBar from "./Components/Header";
 import HomeContainer from "./Components/HomeContainer";
@@ -8,6 +7,7 @@ function App() {
   const [symptom, setSymtoms] = useState([]);
   const [symptomChecked, setSymptomChecked] = useState([]);
   const [diagnosisModalOpen, setDiagnosisModalOpen] = useState(false);
+ 
 
   return (
     <div className="App">
@@ -17,9 +17,9 @@ function App() {
         setSymtoms={setSymtoms}
         symptomChecked={symptomChecked}
         setSymptomChecked={setSymptomChecked}
-        diagnosisModalOpen ={diagnosisModalOpen}
-        setDiagnosisModalOpen ={setDiagnosisModalOpen}
-
+        diagnosisModalOpen={diagnosisModalOpen}
+        setDiagnosisModalOpen={setDiagnosisModalOpen}
+       
       />
     </div>
   );

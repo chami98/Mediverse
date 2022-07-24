@@ -14,7 +14,6 @@ import {
 
 const ExportDiagnosisModal = ({
   symptomChecked,
-  setSymptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
 }) => {
@@ -27,7 +26,10 @@ const ExportDiagnosisModal = ({
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
-    p: 4,
+    paddingTop: "33px",
+    paddingLeft: "33px",
+    paddingRight: "33px",
+    paddingBottom: "14px",
   };
 
   const handleOpen = () => setDiagnosisModalOpen(true);
@@ -93,7 +95,6 @@ const ExportDiagnosisModal = ({
               opacity: 1,
             }}
             variant="contained"
-            onClick={handleOpen}
           >
             DIAGNOSE SENDEN
           </Button>
