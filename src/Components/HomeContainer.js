@@ -3,7 +3,14 @@ import TextAnalyzeContainer from "./TextAnalyzeContainer";
 import Grid from "@mui/material/Grid";
 import OutputDataContainer from "./OutputDataContainer";
 
-const HomeContainer = ({ symptom, setSymtoms }) => {
+const HomeContainer = ({
+  symptom,
+  setSymtoms,
+  symptomChecked,
+  setSymptomChecked,
+  diagnosisModalOpen,
+  setDiagnosisModalOpen,
+}) => {
   return (
     <div style={{ backgroundColor: "#EBF1F5" }}>
       <Grid container>
@@ -11,7 +18,13 @@ const HomeContainer = ({ symptom, setSymtoms }) => {
           <TextAnalyzeContainer symptom={symptom} setSymtoms={setSymtoms} />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
-          <OutputDataContainer symptom={symptom} />
+          <OutputDataContainer
+            symptom={symptom}
+            symptomChecked={symptomChecked}
+            setSymptomChecked={setSymptomChecked}
+            diagnosisModalOpen={diagnosisModalOpen}
+            setDiagnosisModalOpen={setDiagnosisModalOpen}
+          />
         </Grid>
       </Grid>
     </div>

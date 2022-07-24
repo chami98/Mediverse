@@ -10,8 +10,27 @@ import Box from "@mui/material/Box";
 import { Button, Divider, Stack } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
+import Modal from "@mui/material/Modal";
 
-const OutputDataContainer = ({ symptom }) => {
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+const OutputDataContainer = ({
+  symptom,
+  symptomChecked,
+  setSymptomChecked,
+  diagnosisModalOpen,
+  setDiagnosisModalOpen,
+}) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
     font: "normal normal bold 20px/24px Roboto",
@@ -19,6 +38,9 @@ const OutputDataContainer = ({ symptom }) => {
     color: "#616161",
     opacity: 1,
   });
+
+  const handleOpen = () => setDiagnosisModalOpen(true);
+  const handleClose = () => setDiagnosisModalOpen(false);
 
   return (
     <Box
@@ -82,7 +104,11 @@ const OutputDataContainer = ({ symptom }) => {
             ) : null}
 
             {!symptom === undefined || !symptom.length == 0 ? (
-              <DetectedDiagnoses symptom={symptom} />
+              <DetectedDiagnoses
+                symptom={symptom}
+                symptomChecked={symptomChecked}
+                setSymptomChecked={setSymptomChecked}
+              />
             ) : null}
           </CardContent>
           <Box
@@ -115,6 +141,7 @@ const OutputDataContainer = ({ symptom }) => {
                   opacity: 1,
                 }}
                 variant="contained"
+                onClick={handleOpen}
               >
                 DIAGNOSE EXPORTIEREN
               </Button>
@@ -122,6 +149,21 @@ const OutputDataContainer = ({ symptom }) => {
           </Box>
         </Box>
       </Card>
+      <Modal
+        open={diagnosisModalOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
     </Box>
   );
 };
