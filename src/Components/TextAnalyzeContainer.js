@@ -76,7 +76,7 @@ const TextAnalyzeContainer = ({
 
         const sortedSymtoms = filterdSymptoms.sort((a, b) => b.score - a.score);
 
-        //set the state
+        //set the symtoms
         setSymtoms(sortedSymtoms);
       })
       .catch((err) => {

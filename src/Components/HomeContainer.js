@@ -18,6 +18,9 @@ const HomeContainer = ({
   text,
   setText,
 }) => {
+
+    // Keep the snackbar state to open dynamically
+
   const [snackBarState, setSnackBarState] = React.useState({
     open: false,
     vertical: "bottom",
@@ -26,18 +29,28 @@ const HomeContainer = ({
 
   const { vertical, horizontal, open } = snackBarState;
 
+  // handleSnackBarOpen function set the state of snackBarState to ----> open : true
+
   const handleSnackBarOpen = () => {
     setSnackBarState({ ...snackBarState, open: true });
   };
+
+  // handleClose function set the state of snackBarState to ----> open : false
 
   const handleClose = () => {
     setSnackBarState({ ...snackBarState, open: false });
   };
 
   return (
+
+    //HomeContainer renders two components in equally separeted two columns , It has used Material ui Grid 
+
     <div style={{ backgroundColor: "#EBF1F5" }}>
       <Grid container>
         <Grid item xs={6} sx={{ padding: "24px" }}>
+
+          {/* left side component */}
+
           <TextAnalyzeContainer
             setSymtoms={setSymtoms}
             clearAll={clearAll}
@@ -48,6 +61,9 @@ const HomeContainer = ({
           />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
+
+          {/* right side component */}
+
           <OutputDataContainer
             clearAll={clearAll}
             symptoms={symptoms}
@@ -61,6 +77,9 @@ const HomeContainer = ({
             setText={setText}
           />
         </Grid>
+
+{/* SnackBar component wont displayed until snackBarState.open get ---> true */}
+
         <Snackbar
           open={open}
           autoHideDuration={6000}
