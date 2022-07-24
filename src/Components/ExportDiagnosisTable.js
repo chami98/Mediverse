@@ -12,13 +12,12 @@ const ExportDiagnosisTable = ({ symptomChecked }) => {
     return { code, Beschreibung };
   }
 
-
   const rows = [
     createData("Frozen yoghurt", 159),
     createData("Ice cream sandwich", 237),
   ];
   return (
-    <TableContainer component={Paper}>
+    <TableContainer sx={{ marginTop: "34px" }} component={Paper}>
       <Table sx={{}} aria-label="a dense table">
         <TableHead>
           <TableRow>

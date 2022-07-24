@@ -13,13 +13,14 @@ import DetectedDiagnoses from "./DetectedDiagnoses";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import ExportDiagnosisTable from "./ExportDiagnosisTable";
+import "../App.css";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "536px",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -151,6 +152,7 @@ const OutputDataContainer = ({
           </Box>
         </Box>
       </Card>
+
       <Modal
         open={diagnosisModalOpen}
         onClose={handleClose}
@@ -171,12 +173,51 @@ const OutputDataContainer = ({
               <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClose} />
             </Toolbar>
           </AppBar>
-
           <Toolbar />
-          <ExportDiagnosisTable symptomChecked={symptomChecked} />
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          <Typography variant="body" component="body" className="ModalText">
+            Prüfen Sie die ausgewählte Diagnose vor dem Senden.
           </Typography>
+          <ExportDiagnosisTable symptomChecked={symptomChecked} />
+          <Box sx={{ marginTop: "51px" }}></Box>
+          <Divider />
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              marginTop: "14px",
+              background: "#FAFCFC 0% 0% no-repeat padding-box",
+              borderRadius: 1,
+             
+            }}
+          >
+            <Button
+              variant="outlined"
+              style={{
+                background: "#FFFFFF 0% 0% no-repeat padding-box",
+                border: "1px solid #5A55F4",
+                borderRadius: "21px",
+                opacity: 1,
+                marginRight:"10px"
+              }}
+            >
+              ABBRECHEN
+            </Button>
+            <Button
+              style={{
+                background:
+                  "transparent linear-gradient(101deg, #5B55F4 0%, #AC55F4 100%) 0% 0% no-repeat padding-box",
+                boxShadow: "0px 2px 2px #0000003D",
+                borderRadius: "21px",
+                opacity: 1,
+              }}
+              variant="contained"
+              onClick={handleOpen}
+            >
+              DIAGNOSE SENDEN
+            </Button>
+          </Box>
         </Box>
       </Modal>
     </Box>

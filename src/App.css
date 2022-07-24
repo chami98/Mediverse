@@ -36,3 +36,14 @@
   color: #000000de;
   opacity: 1;
 }
+
+.ModalText {
+  text-align: left;
+  font: normal normal normal 17px/24px Roboto;
+  letter-spacing: 0.13px;
+  color: #000000;
+  opacity: 1;
+  width: 422px;
+  height: 23px;
+
+}
