@@ -12,6 +12,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
+import ExportDiagnosisTable from "./ExportDiagnosisTable";
 
 const style = {
   position: "absolute",
@@ -172,9 +173,7 @@ const OutputDataContainer = ({
           </AppBar>
 
           <Toolbar />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
+          <ExportDiagnosisTable symptomChecked={symptomChecked} />
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography>
