@@ -22,7 +22,7 @@ const OutputDataContainer = ({
   handleSnackBarOpen,
   loading,
   text,
-  setText
+  setText,
 }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
