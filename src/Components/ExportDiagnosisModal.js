@@ -46,89 +46,93 @@ const ExportDiagnosisModal = ({
     // dummy submit
     setTimeout(handleSnackBarOpen, 2000);
   };
-
   return (
-    <Modal
-      open={diagnosisModalOpen}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={style}>
-        <AppBar
-          sx={{
-            background:
-              "transparent linear-gradient(96deg, #4864F1 0%, #AA55F4 100%) 0% 0% no-repeat padding-box",
-          }}
-        >
-          <Toolbar sx={{ justifyContent: "space-between" }}>
-            <Typography variant="h6" component="div">
-              Diagnose exportieren
-            </Typography>
-            <CloseIcon
-              fontSize="medium"
-              sx={{ cursor: "pointer" }}
-              onClick={handleClose}
-            />
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
-        <Box
-          style={{
-            paddingLeft: "33px",
-            paddingRight: "33px",
-           
-          }}
-        >
-          <Typography variant="h6" component="h6" className="ModalText" sx={{fontSize: "17px"}}>
-            Prüfen Sie die ausgewählte Diagnose vor dem Senden.
-          </Typography>
-          <ExportDiagnosisTable symptomChecked={symptomChecked} />
-        <Box sx={{ marginTop: "51px" }}></Box>
-        </Box>
-
-        
-        <Divider />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            marginTop: "14px",
-            background: "#FAFCFC 0% 0% no-repeat padding-box",
-            borderRadius: 1,
-            paddingRight : '33px',
-          }}
-        >
-          <Button
-            variant="outlined"
-            onClick={handleClose}
-            style={{
-              background: "#FFFFFF 0% 0% no-repeat padding-box",
-              border: "1px solid #5A55F4",
-              borderRadius: "21px",
-              opacity: 1,
-              marginRight: "10px",
-            }}
-          >
-            ABBRECHEN
-          </Button>
-          <Button
-            style={{
+    <Box sx={{ outline: 0 }}>
+      <Modal
+        open={diagnosisModalOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <AppBar
+            sx={{
               background:
-                "transparent linear-gradient(101deg, #5B55F4 0%, #AC55F4 100%) 0% 0% no-repeat padding-box",
-              boxShadow: "0px 2px 2px #0000003D",
-              borderRadius: "21px",
-              opacity: 1,
+                "transparent linear-gradient(96deg, #4864F1 0%, #AA55F4 100%) 0% 0% no-repeat padding-box",
             }}
-            variant="contained"
-            onClick={handleClick}
           >
-            DIAGNOSE SENDEN
-          </Button>
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <Typography variant="h6" component="div">
+                Diagnose exportieren
+              </Typography>
+              <CloseIcon
+                fontSize="medium"
+                sx={{ cursor: "pointer" }}
+                onClick={handleClose}
+              />
+            </Toolbar>
+          </AppBar>
+          <Toolbar />
+          <Box
+            style={{
+              paddingLeft: "33px",
+              paddingRight: "33px",
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="h6"
+              className="ModalText"
+              sx={{ fontSize: "17px" }}
+            >
+              Prüfen Sie die ausgewählte Diagnose vor dem Senden.
+            </Typography>
+            <ExportDiagnosisTable symptomChecked={symptomChecked} />
+            <Box sx={{ marginTop: "51px" }}></Box>
+          </Box>
+
+          <Divider />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              marginTop: "14px",
+              background: "#FAFCFC 0% 0% no-repeat padding-box",
+              borderRadius: 1,
+              paddingRight: "33px",
+            }}
+          >
+            <Button
+              variant="outlined"
+              onClick={handleClose}
+              style={{
+                background: "#FFFFFF 0% 0% no-repeat padding-box",
+                border: "1px solid #5A55F4",
+                borderRadius: "21px",
+                opacity: 1,
+                marginRight: "10px",
+              }}
+            >
+              ABBRECHEN
+            </Button>
+            <Button
+              style={{
+                background:
+                  "transparent linear-gradient(101deg, #5B55F4 0%, #AC55F4 100%) 0% 0% no-repeat padding-box",
+                boxShadow: "0px 2px 2px #0000003D",
+                borderRadius: "21px",
+                opacity: 1,
+              }}
+              variant="contained"
+              onClick={handleClick}
+            >
+              DIAGNOSE SENDEN
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Modal>
+      </Modal>
+    </Box>
   );
 };
 

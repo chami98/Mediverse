@@ -54,3 +54,7 @@
   color: #000000;
   opacity: 1;
 }
+
+.MuiModal-root {
+  outline: 0;
+}
