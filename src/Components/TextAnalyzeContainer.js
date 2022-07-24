@@ -59,7 +59,7 @@ const TextAnalyzeContainer = ({
           []
         );
 
-        setLoading(false);
+        // setLoading(false);
 
         const symtomObj = {};
 
@@ -84,7 +84,8 @@ const TextAnalyzeContainer = ({
       .catch((err) => {
         alert("fetchnig data failed");
         console.log(err);
-      });
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
