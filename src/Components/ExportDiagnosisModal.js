@@ -116,7 +116,6 @@ const ExportDiagnosisModal = ({
             DIAGNOSE SENDEN
           </Button>
         </Box>
-        {/* <PositionedSnackbar state={state} setState={setState} /> */}
       </Box>
     </Modal>
   );

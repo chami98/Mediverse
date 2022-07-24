@@ -28,8 +28,13 @@ const TextAnalyzeHeader = styled(Typography)({
   opacity: 1,
 });
 
-const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading , text , setText}) => {
-
+const TextAnalyzeContainer = ({
+  setSymtoms,
+  clearAll,
+  setLoading,
+  text,
+  setText,
+}) => {
   const handleClick = () => {
     clearAll();
     postRequest();
@@ -108,11 +113,14 @@ const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading , text , setTex
             background: "#F5F8FA 0% 0% no-repeat padding-box",
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
-            height: "70vh",
-            padding: "24px",
+            height: "76vh",
           }}
         >
-          <CardContentNoPadding>
+          <CardContent
+            sx={{
+              padding: "24px",
+            }}
+          >
             <Box
               sx={{
                 background: "#FFFFFF 0% 0% no-repeat padding-box",
@@ -194,7 +202,7 @@ const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading , text , setTex
                 </Typography>
               </Button>
             </Box>
-          </CardContentNoPadding>
+          </CardContent>
         </Box>
       </Card>
     </Box>
