@@ -18,6 +18,9 @@ const OutputDataContainer = ({
   setSymptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
+  setState,
+  state
+  
 }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
@@ -140,6 +143,9 @@ const OutputDataContainer = ({
         symptomChecked={symptomChecked}
         diagnosisModalOpen={diagnosisModalOpen}
         setDiagnosisModalOpen={setDiagnosisModalOpen}
+        setState={setState}
+        state={state}
+   
       />
     </Box>
   );

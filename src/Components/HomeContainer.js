@@ -10,6 +10,8 @@ const HomeContainer = ({
   setSymptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
+  setState,
+  state
 }) => {
   return (
     <div style={{ backgroundColor: "#EBF1F5" }}>
@@ -24,6 +26,8 @@ const HomeContainer = ({
             setSymptomChecked={setSymptomChecked}
             diagnosisModalOpen={diagnosisModalOpen}
             setDiagnosisModalOpen={setDiagnosisModalOpen}
+            setState={setState}
+            state={state}
           />
         </Grid>
       </Grid>
