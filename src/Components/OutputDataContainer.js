@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { AppBar, Button, Divider, Paper, Stack, Toolbar } from "@mui/material";
+import { Button, Divider, Stack } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 import ExportDiagnosisModal from "./ExportDiagnosisModal";
@@ -28,7 +28,6 @@ const OutputDataContainer = ({
   });
 
   const handleOpen = () => setDiagnosisModalOpen(true);
-  const handleClose = () => setDiagnosisModalOpen(false);
 
   return (
     <Box
