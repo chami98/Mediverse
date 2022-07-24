@@ -80,7 +80,7 @@ const TextAnalyzeContainer = ({
         setSymtoms(sortedSymtoms);
       })
       .catch((err) => {
-        alert("fetchnig data failed");
+        alert("fetching data failed");
         console.log(err);
       })
       .finally(() => setLoading(false));
