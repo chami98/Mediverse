@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -27,8 +28,11 @@ const TextAnalyzeHeader = styled(Typography)({
   opacity: 1,
 });
 
-const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
+const TextAnalyzeContainer = ({ setSymtoms, clearAll }) => {
+  const [text, setText] = useState('');
+
   const handleClick = () => {
+    clearAll()
     postRequest();
   };
 
@@ -36,7 +40,9 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
     const { data } = await axios.post(
       "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
       {
-        text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
+        text,
+        // below is the working text
+        // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
       }
     );
 
@@ -113,6 +119,8 @@ const TextAnalyzeContainer = ({ symptom, setSymtoms }) => {
                 multiline
                 rows={10}
                 fullWidth
+                value={text}
+                onChange={(e) => setText(e.target.value)}
                 InputProps={{ disableUnderline: true }}
               />
             </Box>

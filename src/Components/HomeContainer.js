@@ -24,7 +24,6 @@ const HomeContainer = ({
   const { vertical, horizontal, open } = snackBarState;
 
   const handleSnackBarOpen = () => {
-    console.log('handleSnackBarOpen .. in home')
     setSnackBarState({ ...snackBarState, open: true });
   };
 
@@ -36,7 +35,10 @@ const HomeContainer = ({
     <div style={{ backgroundColor: "#EBF1F5" }}>
       <Grid container>
         <Grid item xs={6} sx={{ padding: "24px" }}>
-          <TextAnalyzeContainer symptom={symptom} setSymtoms={setSymtoms} />
+          <TextAnalyzeContainer
+          setSymtoms={setSymtoms}
+          clearAll={clearAll}
+        />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
           <OutputDataContainer
