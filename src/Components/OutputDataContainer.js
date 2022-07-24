@@ -7,10 +7,11 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { Button, Divider, Stack } from "@mui/material";
+import { AppBar, Button, Divider, Paper, Stack, Toolbar } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 import Modal from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -156,6 +157,21 @@ const OutputDataContainer = ({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <AppBar
+            sx={{
+              background:
+                "transparent linear-gradient(96deg, #4864F1 0%, #AA55F4 100%) 0% 0% no-repeat padding-box",
+            }}
+          >
+            <Toolbar sx={{ justifyContent: "space-between" }}>
+              <Typography variant="h6" component="div">
+                Diagnose exportieren
+              </Typography>
+              <CloseIcon sx={{ cursor: "pointer" }} onClick={handleClose} />
+            </Toolbar>
+          </AppBar>
+
+          <Toolbar />
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>
