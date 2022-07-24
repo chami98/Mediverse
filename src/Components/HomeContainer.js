@@ -13,12 +13,13 @@ const HomeContainer = ({
   setSymptomChecked,
   diagnosisModalOpen,
   setDiagnosisModalOpen,
+  loading,
+  setLoading,
 }) => {
-
   const [snackBarState, setSnackBarState] = React.useState({
     open: false,
-    vertical: 'bottom',
-    horizontal: 'center',
+    vertical: "bottom",
+    horizontal: "center",
   });
 
   const { vertical, horizontal, open } = snackBarState;
@@ -36,9 +37,11 @@ const HomeContainer = ({
       <Grid container>
         <Grid item xs={6} sx={{ padding: "24px" }}>
           <TextAnalyzeContainer
-          setSymtoms={setSymtoms}
-          clearAll={clearAll}
-        />
+            setSymtoms={setSymtoms}
+            clearAll={clearAll}
+            loading={loading}
+            setLoading={setLoading}
+          />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
           <OutputDataContainer
@@ -49,6 +52,7 @@ const HomeContainer = ({
             diagnosisModalOpen={diagnosisModalOpen}
             setDiagnosisModalOpen={setDiagnosisModalOpen}
             handleSnackBarOpen={handleSnackBarOpen}
+            loading={loading}
           />
         </Grid>
         <Snackbar
@@ -59,13 +63,14 @@ const HomeContainer = ({
             horizontal,
           }}
         >
-        <Alert 
-          onClose={handleClose}
-          severity="success"
-          variant="filled"
-          sx={{ width: '100%' }}>
-          Diagnose von Patient Peter Weinholz wurde erfolgreich übermittelt.
-        </Alert>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            Diagnose von Patient Peter Weinholz wurde erfolgreich übermittelt.
+          </Alert>
         </Snackbar>
       </Grid>
     </div>

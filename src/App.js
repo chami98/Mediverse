@@ -9,6 +9,9 @@ function App() {
   const [symptom, setSymtoms] = useState([]);
   const [symptomChecked, setSymptomChecked] = useState([]);
   const [diagnosisModalOpen, setDiagnosisModalOpen] = useState(false);
+  
+  const [loading, setLoading] = useState(false);
+
 
   const clearAll = () => {
     setSymtoms([])
@@ -27,6 +30,8 @@ function App() {
         setSymptomChecked={setSymptomChecked}
         diagnosisModalOpen={diagnosisModalOpen}
         setDiagnosisModalOpen={setDiagnosisModalOpen}
+        loading={loading}
+        setLoading={setLoading}
       />
     </div>
   );

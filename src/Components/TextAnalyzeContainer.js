@@ -28,31 +28,34 @@ const TextAnalyzeHeader = styled(Typography)({
   opacity: 1,
 });
 
-const TextAnalyzeContainer = ({ setSymtoms, clearAll }) => {
-  const [text, setText] = useState('');
+const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading }) => {
+  const [text, setText] = useState("");
 
   const handleClick = () => {
-    clearAll()
+    clearAll();
     postRequest();
   };
 
   const postRequest = async () => {
-
-    axios.post(
-      "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
-      {
-        text,
-        // below is the working text
-        // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
-      }
-    ).then( ( res => {
-
+    setLoading(true);
+    axios
+      .post(
+        "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
+        {
+          text,
+          // below is the working text
+          // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
+        }
+      )
+      .then((res) => {
         // get response data from the API and assign data to responseData array
 
         const responseData = res.data.reduce(
           (acc, s) => acc.concat(s.symptom_icd10_codes),
           []
         );
+
+        setLoading(false);
 
         const symtomObj = {};
 
@@ -73,12 +76,11 @@ const TextAnalyzeContainer = ({ setSymtoms, clearAll }) => {
 
         //set the state
         setSymtoms(sortedSymtoms);
-    }))
-    .catch(err => {
-      alert('fetchnig data failed')
-      console.log(err)
-    })
-    
+      })
+      .catch((err) => {
+        alert("fetchnig data failed");
+        console.log(err);
+      });
   };
 
   return (

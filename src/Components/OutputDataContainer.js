@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { Button, Divider, Stack } from "@mui/material";
+import { Button, CircularProgress, Divider, Stack } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DetectedDiagnoses from "./DetectedDiagnoses";
 import ExportDiagnosisModal from "./ExportDiagnosisModal";
@@ -20,6 +20,7 @@ const OutputDataContainer = ({
   diagnosisModalOpen,
   setDiagnosisModalOpen,
   handleSnackBarOpen,
+  loading,
 }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
@@ -63,6 +64,19 @@ const OutputDataContainer = ({
           }}
         >
           <CardContent>
+          {loading ? (
+              <Box
+                sx={{
+                  padding: "220px 0",
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <CircularProgress size="4rem" />
+              </Box>
+            ) : null}
             {!symptom === undefined || symptom.length == 0 ? (
               <Stack
                 direction="row"
