@@ -28,8 +28,7 @@ const TextAnalyzeHeader = styled(Typography)({
   opacity: 1,
 });
 
-const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading }) => {
-  const [text, setText] = useState("");
+const TextAnalyzeContainer = ({ setSymtoms, clearAll, setLoading , text , setText}) => {
 
   const handleClick = () => {
     clearAll();

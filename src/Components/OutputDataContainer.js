@@ -21,6 +21,8 @@ const OutputDataContainer = ({
   setDiagnosisModalOpen,
   handleSnackBarOpen,
   loading,
+  text,
+  setText
 }) => {
   const OutputDataContainerHeader = styled(Typography)({
     textAlign: "left",
@@ -64,7 +66,7 @@ const OutputDataContainer = ({
           }}
         >
           <CardContent>
-          {loading ? (
+            {loading ? (
               <Box
                 sx={{
                   padding: "220px 0",
@@ -111,6 +113,8 @@ const OutputDataContainer = ({
                 symptom={symptom}
                 symptomChecked={symptomChecked}
                 setSymptomChecked={setSymptomChecked}
+                text={text}
+                setText={setText}
               />
             ) : null}
           </CardContent>
@@ -158,6 +162,8 @@ const OutputDataContainer = ({
         diagnosisModalOpen={diagnosisModalOpen}
         setDiagnosisModalOpen={setDiagnosisModalOpen}
         handleSnackBarOpen={handleSnackBarOpen}
+        text={text}
+        setText={setText}
       />
     </Box>
   );

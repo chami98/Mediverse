@@ -18,6 +18,8 @@ const ExportDiagnosisModal = ({
   diagnosisModalOpen,
   setDiagnosisModalOpen,
   handleSnackBarOpen,
+  text,
+  setText,
 }) => {
   const style = {
     position: "absolute",
@@ -39,6 +41,7 @@ const ExportDiagnosisModal = ({
   const handleClick = () => {
     clearAll();
     handleClose();
+    setText("");
 
     // dummy submit
     setTimeout(handleSnackBarOpen, 2000);

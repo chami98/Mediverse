@@ -15,6 +15,8 @@ const HomeContainer = ({
   setDiagnosisModalOpen,
   loading,
   setLoading,
+  text,
+  setText,
 }) => {
   const [snackBarState, setSnackBarState] = React.useState({
     open: false,
@@ -41,6 +43,8 @@ const HomeContainer = ({
             clearAll={clearAll}
             loading={loading}
             setLoading={setLoading}
+            text={text}
+            setText={setText}
           />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
@@ -53,6 +57,8 @@ const HomeContainer = ({
             setDiagnosisModalOpen={setDiagnosisModalOpen}
             handleSnackBarOpen={handleSnackBarOpen}
             loading={loading}
+            text={text}
+            setText={setText}
           />
         </Grid>
         <Snackbar

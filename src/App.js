@@ -9,8 +9,9 @@ function App() {
   const [symptom, setSymtoms] = useState([]);
   const [symptomChecked, setSymptomChecked] = useState([]);
   const [diagnosisModalOpen, setDiagnosisModalOpen] = useState(false);
-  
   const [loading, setLoading] = useState(false);
+  const [text, setText] = useState("");
+
 
 
   const clearAll = () => {
@@ -32,6 +33,8 @@ function App() {
         setDiagnosisModalOpen={setDiagnosisModalOpen}
         loading={loading}
         setLoading={setLoading}
+        text={text}
+        setText={setText}
       />
     </div>
   );

@@ -112,7 +112,7 @@ const DetectedDiagnoses = ({ symptom, symptomChecked, setSymptomChecked }) => {
                     variant="SymptomCode"
                     component="div"
                     className="SymptomCode"
-                    sx={{ minWidth: "50px" }}
+                    sx={{ minWidth: "72px" }}
                   >
                     {symptom.code}
                   </Typography>
