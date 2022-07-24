@@ -1,0 +1,1 @@
+export const myConfig = { apiUrl: "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a", };

@@ -10,6 +10,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import { Button, TextField } from "@mui/material";
 import "../App.css";
+import { myConfig } from "../config/config";
 
 const axios = require("axios").default;
 
@@ -43,14 +44,11 @@ const TextAnalyzeContainer = ({
   const postRequest = async () => {
     setLoading(true);
     axios
-      .post(
-        "http://ec2-18-185-98-84.eu-central-1.compute.amazonaws.com/analyze-document/?=a",
-        {
-          text,
-          // below is the working text
-          // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
-        }
-      )
+      .post(myConfig.apiUrl, {
+        text,
+        // below is the working text
+        // text: "Der Patient erwähnte, dass er letzte Nacht Fieber und hohe Temperatur hatte. Er hat auch einen trockenen Husten und Halsschmerzen für drei Tage in Folge. Bisher wurden keine Medikamente , nur Tee.",
+      })
       .then((res) => {
         // get response data from the API and assign data to responseData array
 
