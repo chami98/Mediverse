@@ -70,7 +70,7 @@ const ExportDiagnosisModal = ({
           </Toolbar>
         </AppBar>
         <Toolbar />
-        <Typography variant="body" component="body" className="ModalText">
+        <Typography variant="h6" component="h6" className="ModalText">
           Prüfen Sie die ausgewählte Diagnose vor dem Senden.
         </Typography>
         <ExportDiagnosisTable symptomChecked={symptomChecked} />
