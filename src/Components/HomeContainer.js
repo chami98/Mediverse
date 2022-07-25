@@ -18,8 +18,7 @@ const HomeContainer = ({
   text,
   setText,
 }) => {
-
-    // Keep the snackbar state to open dynamically
+  // Keep the snackbar state to open dynamically
 
   const [snackBarState, setSnackBarState] = React.useState({
     open: false,
@@ -42,13 +41,11 @@ const HomeContainer = ({
   };
 
   return (
+    //HomeContainer renders two components in equally separeted two columns , It has used Material ui Grid
 
-    //HomeContainer renders two components in equally separeted two columns , It has used Material ui Grid 
-
-    <div style={{ backgroundColor: "#EBF1F5" }}>
+    <div style={{ backgroundColor: "#EBF1F5", height: "1080px" }}>
       <Grid container>
         <Grid item xs={6} sx={{ padding: "24px" }}>
-
           {/* left side component */}
 
           <TextAnalyzeContainer
@@ -61,7 +58,6 @@ const HomeContainer = ({
           />
         </Grid>
         <Grid item xs={6} sx={{ paddingTop: "24px", paddingRight: "24px" }}>
-
           {/* right side component */}
 
           <OutputDataContainer
@@ -78,7 +74,7 @@ const HomeContainer = ({
           />
         </Grid>
 
-{/* SnackBar component wont displayed until snackBarState.open get ---> true */}
+        {/* SnackBar component wont displayed until snackBarState.open get ---> true */}
 
         <Snackbar
           open={open}

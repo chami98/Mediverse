@@ -65,7 +65,7 @@ const OutputDataContainer = ({
             background: "#F5F8FA 0% 0% no-repeat padding-box",
             boxShadow: "0px 0px 3px #00000058",
             opacity: 1,
-            height: "76vh",
+            height: "956px",
             overflow: "scroll",
           }}
         >
